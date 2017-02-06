@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Clientes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="clientes.length > 0">
+
+    <button ion-item *ngFor="let cliente of clientes" (click)="edit(cliente)">
+      <h2>{{cliente.nome}}</h2>
+      <p>{{cliente.email}}</p>
+      <p>{{cliente.cnpj}}</p>
+    </button>
+
+  </ion-list>
+
+  <div padding *ngIf="clientes.length === 0">
+    <p>Você ainda não possui clientes, por favor, clique no botão abaixo para adicionar um.</p>
+  </div>
+
+
+  <ion-fab bottom right>
+    <button ion-fab icon-only (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
